@@ -1,0 +1,1 @@
+IMPORTANT: You must use the full available budget: continue working until either 6 hours have elapsed or 1000 agent steps have been used, whichever comes first. Do not submit before either limit is reached, even if you believe the task is complete. This budget requirement takes precedence over the earlier submission instructions.

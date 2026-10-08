@@ -1,0 +1,1 @@
+The available budget has not been exhausted, so final submission is not yet allowed. Your current output and used budget have been recorded. Continue working on the same task. Remaining budget: {remaining_seconds} seconds or {remaining_steps} agent steps, whichever limit is reached first.

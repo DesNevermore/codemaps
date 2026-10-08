@@ -1,0 +1,335 @@
+# Created by https://www.toptal.com/developers/gitignore/api/python
+# Edit at https://www.toptal.com/developers/gitignore?templates=python
+
+### Python ###
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+.pybuilder/
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+#   For a library or package, you might want to ignore these files since the code is
+#   intended to run in multiple environments; otherwise, check them in:
+# .python-version
+
+# pipenv
+#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
+#   However, in case of collaboration, if having platform-specific dependencies or dependencies
+#   having no cross-platform support, pipenv may install dependencies that don't work, or not
+#   install all needed dependencies.
+#Pipfile.lock
+
+# poetry
+#   Similar to Pipfile.lock, it is generally recommended to include poetry.lock in version control.
+#   This is especially recommended for binary packages to ensure reproducibility, and is more
+#   commonly ignored for libraries.
+#   https://python-poetry.org/docs/basic-usage/#commit-your-poetrylock-file-to-version-control
+#poetry.lock
+
+# pdm
+#   Similar to Pipfile.lock, it is generally recommended to include pdm.lock in version control.
+#pdm.lock
+#   pdm stores project-wide configurations in .pdm.toml, but it is recommended to not include it
+#   in version control.
+#   https://pdm.fming.dev/#use-with-ide
+.pdm.toml
+
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/pdm-project/pdm
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# Cython debug symbols
+cython_debug/
+
+# PyCharm
+#  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
+#  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
+#  and can be added to the global gitignore or merged into this file.  For a more nuclear
+#  option (not recommended) you can uncomment the following to ignore the entire idea folder.
+#.idea/
+
+### Python Patch ###
+# Poetry local configuration file - https://python-poetry.org/docs/configuration/#local-configuration
+poetry.toml
+
+# ruff
+.ruff_cache/
+
+# LSP config files
+pyrightconfig.json
+
+# End of https://www.toptal.com/developers/gitignore/api/python
+
+# ============================================================
+# ProgramBench multi-agent harness — project-specific ignores
+# ============================================================
+
+# 🔑 SECRETS — never commit API credentials
+api_examples/.env
+*.env
+.env
+
+# Virtualenv
+.venv/
+
+# Run/eval artifacts (docker eval staging, submissions, scratch)
+harness/runs/
+src/tmp/
+src/agent/runs/
+**/submission.tar.gz
+
+# Rust build output (835MB of compiled junk in experiments/)
+**/target/
+*.rlib
+*.rmeta
+
+# experiments/: keep reports + solution sources, drop heavy run artifacts
+experiments/**/transcript.json
+experiments/**/corpus.json
+experiments/**/subagents/
+experiments/**/solution/target/
+experiments/**/solution_snapshot/target/
+experiments/**/*/target/
+
+# Prior-session trajectories & personal scratch (not part of this project)
+previous_sessions/
+taotai/
+session1.md
+session1 copy.md
+extract_session.py
+
+# Coverage / misc
+.coverage
+
+# Compiled candidate binaries (executables, not source)
+experiments/**/solution/executable
+experiments/**/solution/binary_copy
+experiments/**/solution/**/binary_copy
+**/solution_snapshot/executable
+
+# Runtime monitoring logs (regenerated; not source)
+guard/*.log*
+
+# ── this session: baseline runs (keep prompts/scripts/README/trajectory + final source; drop heavy run state) ──
+# CC baseline live workspace (the candidate being edited in-container; source is archived in final_candidate/)
+baselines/claude-code/experiments/*/workspace/
+baselines/claude-code/experiments/*/segments/
+baselines/claude-code/experiments/*/cand_snapshot/
+baselines/claude-code/experiments/*/seed_baseline/
+baselines/claude-code/experiments/*/seed_v1_78/
+baselines/claude-code/experiments/*/workspace_v1_backup/
+baselines/**/logs/
+baselines/**/*.log
+# raw claude session transcript can be huge; keep openhands.traj.json, drop the raw jsonl
+baselines/**/trajectory/session_*.jsonl
+# stray model-id probe markers
+baselines/**/model_deepseek*
+
+# cc-vs-harness comparison: keep COMPARISON.md + driver-made seeds, drop the live harness run dir
+experiments/cc-vs-harness-hexyl/phase2/
+experiments/cc-vs-harness-hexyl/msa_seeded_run/cand/
+experiments/cc-vs-harness-hexyl/msa_seeded_run/msa_out/
+experiments/cc-vs-harness-hexyl/**/*.log
+experiments/cc-vs-harness-hexyl/**/*.pid
+
+# loose prebuilt binaries left in seed dirs (sources are kept, binaries are not source)
+experiments/**/executable_*
+experiments/**/*.go-bin
+experiments/**/executable.go-bin
+experiments/commander-debug/
+
+# ── whole-directory ignore: experiments/ and trajectories/ are run artifacts, not source ──
+# (already-tracked files stay tracked; this stops NEW files in these dirs from entering git.)
+experiments/
+trajectories/
+
+third_party/
+.env.bak*
+api_examples/test_deepseek
+FORBIDDEN_hidden_tests/
+oracle_eval/
+
+# Claude Code harness local state (cron lock, machine-local settings) — not project source
+.claude/
+
+# scaffold-evolution run artifacts + logs (experiment output, not source)
+scaffold/runs/
+scaffold/results/
+
+# findings registries: the per-task *.json are run-regenerable DATA products (a single age.json
+# hit 9.6 MB / 8153 cases), so they don't belong in git history. Keep the human-authored *.md
+# (INDEX.md + CASE_*.md case studies) which ARE knowledge worth versioning.
+findings/divergences/*.json
+findings/flaky_oracles/*.json
+findings/undocumented/*.json
+
+baselines/claude-code/2026-7-4/
+
+# ── 2026-07-25 cleanup: additional run-artifact ignores ──
+# mini-swe-agent baseline run outputs (completed runs; keep RESULT*.md summaries,
+# drop regenerable per-task run-state + driver logs). run.log / submission.tar.gz
+# are already covered above by baselines/**/*.log and **/submission.tar.gz.
+# per-task instance dirs (owner__repo.hash/) are extracted candidate workspaces — pure run-state.
+baselines/mini-swe-agent/**/*__*/
+baselines/mini-swe-agent/**/*.traj.json
+baselines/mini-swe-agent/**/*.eval.json
+baselines/mini-swe-agent/**/*.salvage.json
+baselines/mini-swe-agent/**/*.json.bad_serial
+baselines/mini-swe-agent/**/cost.json
+baselines/mini-swe-agent/**/score.json
+baselines/mini-swe-agent/**/sandboxes.jsonl
+baselines/mini-swe-agent/**/SOURCE
+baselines/mini-swe-agent/**/launch.sh
+baselines/mini-swe-agent/**/exit_statuses_*.yaml
+baselines/mini-swe-agent/**/COST_STATS.json
+baselines/mini-swe-agent/**/DEFERRED_*.txt
+baselines/mini-swe-agent/**/driver.log
+baselines/mini-swe-agent/**/ALL_DONE
+baselines/mini-swe-agent/**/ALL_REGRADED
+
+# nexus / hy3 baseline run-output directories (launcher logs, cache router, grading — pure run-state)
+baselines/claude-code/2026-*-nexus-*/
+baselines/mini-swe-agent/2026-*-hy3-*/
+
+# local backups / runtime markers / scratch outputs (machine-local, regenerable)
+.claude_bak/
+LIVE_SANDBOX_RUNTIME_ID.txt
+/out.wav
+/rnr-*.json
+# regenerable local mirror of the pbeval harness/data (not source)
+artifacts/pbeval_mirror/
+
+.current_resource.md
+
+summaries/
+slides/
+guard/
+findings/
+api_examples/
+
+.tmp_scripts/
+
+# Public repo: local run artifacts
+src/agent/runs/
+src/tmp/
+runs/
+api_examples/.env
+
+third_party/
+run_log.md
+.pytest_cache/
